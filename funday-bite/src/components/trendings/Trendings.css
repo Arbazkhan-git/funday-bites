@@ -1,0 +1,68 @@
+.trendings {
+  margin-top: 20px;
+  color: white;
+}
+
+.trendings h3 {
+  margin-bottom: 10px;
+}
+
+.trendings-list {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.trendings-content {
+  position: relative;
+  display: flex;
+    font-size: min(2.2vw, 22px);
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  height: 150px;
+  background-color: #FFA200;
+  border-radius: 25px;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-weight: 400;
+  box-sizing: border-box;
+  gap: 2px;
+}
+.trendings-list::-webkit-scrollbar{
+    display: none;
+}
+
+.trend-text p {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.trend-image img {
+  width: 110px;
+  margin-top: -25px;
+  margin-right: -20px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: 0.25s;
+}
+
+.dot.active {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+}
