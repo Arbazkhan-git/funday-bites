@@ -8,7 +8,7 @@ export default function Foodlist({id,name,price,image}) {
         </div>
         <div className="item-info">
             <p>{name}</p>
-            <p>{price}</p>
+            <p className="item-info-price">{price}</p>
         </div>
 
       

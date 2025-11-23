@@ -3,3 +3,9 @@
     flex-direction: column;
     gap: 3px;
 }
+.item-info-price{
+    display: flex;
+    align-items: center;
+    
+
+}

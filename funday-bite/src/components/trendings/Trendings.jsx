@@ -11,8 +11,10 @@ export default function Trendings() {
 
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [pause, setPause] = useState(false);
 
   useEffect(() => {
+    if (pause) return;
     const slider = sliderRef.current;
     const interval = setInterval(() => {
       let nextIndex = (activeIndex + 1) % trends.length;
@@ -21,12 +23,24 @@ export default function Trendings() {
       slider.scrollTo({ left: scrollPos, behavior: "smooth" });
     }, 2000);
     return () => clearInterval(interval);
-  }, [activeIndex, trends.length]);
+  }, [activeIndex, trends.length, pause]);
+
+  const goToSlide = (d) => {
+    const slider = sliderRef.current;
+    setActiveIndex(d);
+    const scrollPos = (slider.scrollWidth / (trends.length * 2)) * (d + trends.length);
+    slider.scrollTo({ left: scrollPos, behavior: "smooth" });
+  };
 
   return (
     <div className="trendings">
       <h3>Trendings</h3>
-      <div className="trendings-list" ref={sliderRef}>
+      <div
+        className="trendings-list"
+        ref={sliderRef}
+        onMouseEnter={() => setPause(true)}
+        onMouseLeave={() => setPause(false)}
+      >
         {[...trends, ...trends].map((item, i) => (
           <div className="trendings-content" key={i}>
             <div className="trend-text">
@@ -39,7 +53,11 @@ export default function Trendings() {
             </div>
             <div className="dots">
               {trends.map((_, d) => (
-                <span key={d} className={activeIndex === d ? "dot active" : "dot"} />
+                <span
+                  key={d}
+                  onClick={() => goToSlide(d)}
+                  className={activeIndex === d ? "dot active" : "dot"}
+                />
               ))}
             </div>
           </div>

@@ -5,8 +5,13 @@
     gap: 30px;
 row-gap: 50px;
 margin-top: 30px;
+animation: fadein 1.5s;
    
      
 
+}
+.food-display-list img{
+    width: 145px;
+    height: 145px;
 }
  
