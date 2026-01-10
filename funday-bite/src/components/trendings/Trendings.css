@@ -1,6 +1,6 @@
 .trendings {
   margin-top: 20px;
-  color: white;
+  color: black;
 }
 
 .trendings h3 {
@@ -51,18 +51,25 @@
   transform: translateX(-50%);
   display: flex;
   gap: 6px;
+  color: #FFA100;
+  
+  align-items: center;
 }
 
 .dot {
+   
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: rgba(255,255,255,0.5);
   transition: 0.25s;
+   color: #FFA100;
 }
 
 .dot.active {
   width: 12px;
+   
   height: 12px;
-  background: #fff;
+  background: #FFBA08;
+   color: #FFA100;
 }

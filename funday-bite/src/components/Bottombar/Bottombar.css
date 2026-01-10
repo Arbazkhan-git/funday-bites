@@ -1,0 +1,74 @@
+.bottom-navbar {
+    position: fixed;    
+    bottom: 0;         
+    left: 0;           
+    width: 100%;        
+    height: 70px;      
+    background-color: #fff;  
+    display: flex;
+    justify-content: center;  
+    align-items: center;            
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1); 
+    z-index:1000;     
+    border: 1px solid black;
+  
+        gap: 340px;
+}
+.cart img{
+    width: 20px;
+    height: 20px;
+ 
+
+}
+.cart{
+    margin-bottom: 8px;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+}
+.profile img{
+    width: 35px;
+    height: 35px;
+ 
+}
+.profile{
+       margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+}
+.profile a{
+    font-size: small;
+        margin-top:-10px;
+        padding-bottom:10px ;
+}
+.home img{
+    width: 20px;
+    height: 30px;
+ padding-bottom: -8px;
+ margin-bottom: -6px;
+ margin-top: -8px;
+}
+.home{
+       margin-bottom: 8px;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+}
+
+@media (max-width: 768px) {
+    .bottom-navbar {
+        gap: 160px;
+    }
+}
+@media (max-width: 480px) {
+    .bottom-navbar {
+        gap: 100px;
+    }
+}
+

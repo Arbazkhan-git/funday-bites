@@ -5,8 +5,9 @@
   box-sizing: border-box;
  scroll-behavior: smooth;
  font-family:outfit;
- margin-top: 8px;
+ padding-top:4px;
  }
+ 
  .app{
   width: 75%;
   margin: auto;
@@ -29,3 +30,18 @@ a{
   }
   
 }
+@media (max-width: 768px) {
+  .app {
+    width: 100%;
+    padding: 0px 16px 0px;
+  }
+}
+
+
+
+ /* .app {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding: 0 16px; /* mobile safe spacing */
+/* } */ 

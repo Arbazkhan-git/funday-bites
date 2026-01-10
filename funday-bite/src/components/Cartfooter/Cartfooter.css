@@ -1,0 +1,37 @@
+.Cartfooter {
+  position: fixed;      /* stick to the bottom */
+  bottom: 0;            /* align to bottom of screen */
+  left: 50%; 
+  height: 190px;           /* start at center */
+  transform: translateX(-50%); /* center it horizontally */
+  width: 76%;           /* 75% width of your app container */
+  background-color: white; /* your footer color */
+  padding: 15px 20px;   /* some padding */
+    
+    flex-direction: column;
+  border-top: 1px solid grey;
+  display: flex;
+ 
+  z-index: 1000;       /* make sure it stays above content */
+}
+ .Cartfooter button{
+    background-color: #FFB200;
+    height: 70px;
+  margin-top: 10px;
+  margin-left: -20px;
+     font-weight: 600;
+     font-size:30px;
+    color: white;
+    width: 100%;
+    border-radius: 10px;
+ }
+ .Cartfooter p{
+    font-size: large;
+     
+    font-weight: 600;
+ }
+ .Cartfooter a{
+    text-align: center;
+    margin-top: 30px;
+     cursor: pointer;
+ }
