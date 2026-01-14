@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Display.css";
 import Foodlist from '../foodlist/Foodlist';
 
-export default function Display({ category,cartitems,addtocart,removefromcart }) {
+export default function Display({ category,cartitems,addtocart,removefromcart,openSheet,closeSheet }) {
   const [food, setFood] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Display({ category,cartitems,addtocart,removefromcart })
 };
 fetchFood();
   }, []);
- console.log(food);
+ 
   return (
     <div className='food-display' id='food-display'>
       
@@ -33,8 +33,10 @@ fetchFood();
                 .filter(item => category === "All" || category === item.categoryId)
                 .map((item) => (
                   <Foodlist
+                  item={item}
                     key={item.id}
-                     
+                     openSheet={openSheet}
+                     closeSheet={closeSheet}
                     name={item.name}
                     price={item.price}
                     id={item.id}

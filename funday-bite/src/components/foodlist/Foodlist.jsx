@@ -1,8 +1,9 @@
 import React from "react";
 import "./Foodlist.css";
+import Bottomsheet from "../Bottomsheet/Bottomsheet";
 
-export default function Foodlist({ id, name, price, cartitems, addtocart, removefromcart }) {
-  const qty = cartitems[id]?.qty || 0; // current quantity in cart
+export default function Foodlist({ id, name, price, cartitems, addtocart, removefromcart,openSheet,closeSheet,item }) {
+  const qty = cartitems[id]?.qty || 0; 
 
   return (
     <div className="food-list">
@@ -18,9 +19,19 @@ export default function Foodlist({ id, name, price, cartitems, addtocart, remove
         <div className="icones">
           <span className="item-info-price">{"₹" + price}</span>
 
-          {/* Counter with + and - icons */}
-          <div className="counter-div">
-            {/* Remove button */}
+     
+          
+            
+            { qty ===0?(
+              <img
+              className="addicon"
+              onClick={() => openSheet(item)}    
+              src="/add_icon_white.png"
+              alt="Add"
+            />
+            ):(
+<div className="counter-div">
+            
             <img
               className="addicon"
               onClick={() => removefromcart(id)}
@@ -28,17 +39,21 @@ export default function Foodlist({ id, name, price, cartitems, addtocart, remove
               alt="Remove"
             />
 
-            {/* Quantity */}
+             
             <span className="counter">{qty}</span>
-
-            {/* Add button */}
+ 
             <img
               className="addicon"
               onClick={() => addtocart(id)}
               src="/add_icon_white.png"
               alt="Add"
             />
-          </div>
+           </div>
+           
+            )
+            }
+            
+             
         </div>
       </div>
     </div>

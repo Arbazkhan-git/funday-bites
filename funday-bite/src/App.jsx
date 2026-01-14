@@ -4,9 +4,23 @@ import Home from "./pages/home/Home";
 import Cart from "./pages/home/cart/Cart";
  import { useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
- 
-
+import Bottomsheet from "./components/Bottomsheet/Bottomsheet";
 function App() {
+
+
+const [selectedItem, setSelectedItem] = useState(null);
+
+const [showSheet, setShowSheet] = useState(false);
+
+const openSheet = (item) => {
+  setSelectedItem(item);
+  setShowSheet(true);
+};
+
+const closeSheet = () => {
+  setShowSheet(false);
+  setSelectedItem(null);
+};
    
   const [food, setFood] = useState([]);
 useEffect(() => {
@@ -58,6 +72,8 @@ const removefromcart = (itemid) => {
   });
 };
 
+
+
   useEffect(() => {
     localStorage.setItem("cartitems", JSON.stringify(cartitems));
   }, [cartitems]);
@@ -73,39 +89,32 @@ const totalAmount = useMemo(() => {
 
   return Object.entries(cartitems).reduce((total, [id, item]) => {
     const product = food.find((p) => String(p.id) === String(id));
-
     if (!product || item.qty <= 0) return total;
 
-    // base price for quantity
-   let itemTotal = Number(product.price) * item.qty;
+    
+    let itemTotal = Number(product.price)*item.qty;
 
-// add addons price
-Object.entries(item.addons || {}).forEach(([addon, selected]) => {
-  if (selected) {
-    itemTotal += (ADDON_PRICES[addon] || 0) ;
-  }
-});
-
+     
+    Object.entries(item.addons || {}).forEach(([addon, addonQty]) => {
+      const addonPrice = ADDON_PRICES[addon] || 0;
+      itemTotal += addonPrice * addonQty;
+    });
 
     return total + itemTotal;
   }, 0);
 }, [cartitems, food]);
 
 
+ 
+
+const addItemWithAddons = (item, qty, addons) => {
+  setcartitems((prev) => ({
+    ...prev,[item.id]: {qty,addons,},
+  }));
+  closeSheet();
+};
 
  
-const toggleAddon = (itemid, addonKey) => {
-  setcartitems((prev) => ({
-    ...prev,
-    [itemid]: {
-      ...prev[itemid],
-      addons: {
-        ...prev[itemid].addons,
-        [addonKey]: !prev[itemid].addons?.[addonKey],
-      },
-    },
-  }));
-};
 
 
 
@@ -119,7 +128,8 @@ const toggleAddon = (itemid, addonKey) => {
               addtocart={addtocart}
               removefromcart={removefromcart}
               cartitems={cartitems}
-               
+               openSheet={openSheet}
+               closeSheet={closeSheet}
             />
           }
         />
@@ -128,7 +138,7 @@ const toggleAddon = (itemid, addonKey) => {
           path="/cart"
           element={
             <Cart
-            toggleAddon={toggleAddon}
+             
             food={food}
               addtocart={addtocart}
               removefromcart={removefromcart}
@@ -139,6 +149,16 @@ const toggleAddon = (itemid, addonKey) => {
           }
         />
       </Routes>
+      
+      
+      {showSheet && (
+  <Bottomsheet
+    item={selectedItem}
+    onClose={closeSheet}
+    onAdd={addItemWithAddons}
+  />
+)}
+
  
     </div>
   );
