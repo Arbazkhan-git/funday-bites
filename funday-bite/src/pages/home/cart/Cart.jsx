@@ -12,7 +12,7 @@ export default function Cart({ cartitems, removefromcart, addtocart, removefromc
   return (
     <>
       <div className="carts-info">
-        <h2>
+        <h2 className="text-2xl font-bold">
           {Object.values(cartitems).filter(item => item.qty > 0).length
           } items in cart
         </h2>
@@ -39,7 +39,7 @@ export default function Cart({ cartitems, removefromcart, addtocart, removefromc
 
               <div className="cart-item-details">
                 <p>{item.name}</p>
-                <p>₹{item.price}</p>
+                <p className="text-[#FFB200]">₹{item.price}</p>
 
                 {(
                   <div>

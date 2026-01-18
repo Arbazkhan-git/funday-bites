@@ -34,7 +34,7 @@ export default function Trendings() {
 
   return (
     <div className="trendings">
-      <h3>Trendings</h3>
+      <h3 className="text-xl font-semibold  ">Trendings</h3>
       <div
         className="trendings-list"
         ref={sliderRef}
@@ -42,7 +42,11 @@ export default function Trendings() {
         onMouseLeave={() => setPause(false)}
       >
         {[...trends, ...trends].map((item, i) => (
-          <div className="trendings-content" key={i}>
+<div
+  className="trendings-content text-white text-lg font-bold"
+  key={i}
+>
+
             <div className="trend-text">
               <p>Introducing</p>
               <p>{item.title}</p>

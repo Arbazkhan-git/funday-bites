@@ -33,12 +33,16 @@ hr{
    background-color: white;
     color:  #FFB200; 
  }
+.dileverylocation p{
+font-size: small;
+margin:-5px;
+ }
  .dileverylocation img{
     width: 20px;
     height: 20px;
  }
  .dileverylocation{
-    margin: 10px;
+     
 border: 1px solid #ccc;
     padding: 8px;
     border-radius: 10px;
@@ -46,8 +50,8 @@ border: 1px solid #ccc;
     flex-direction: column;
     
     gap: 10px;
-    width: 100%;
-    margin-top: 10px;
+    width: 97%;
+     
     
  }
  .best{

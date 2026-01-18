@@ -72,13 +72,13 @@ export default function Category({ category, setcategory }) {
       <div className="category-list">
         {categorys.map((item, index) => (
             <div key={index}>
-          <div   className={`category-info ${ category === item.categoryId ? "active" : ""}`} onClick={() => setcategory(item.categoryId)}>
-            <div className="img-wrap">
-              <img src={item.image} alt={item.name} />
+          <div   className={`category-info `} onClick={() => setcategory(item.categoryId)}>
+            <div className={`img-wrap ${ category === item.categoryId ? "active" : ""}`}>
+              <img className={`bg-white ${ category === item.categoryId ? "active" : ""}`} src={item.image} alt="" />
             </div>
              
           </div>
-          <p>{item.name}</p>
+          <p className="text-[#FFA200]">{item.name}</p>
           </div>
         ))}
       </div>
