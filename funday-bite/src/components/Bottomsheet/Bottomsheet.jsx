@@ -170,8 +170,8 @@ function Bottomsheet({ item, onClose, onAdd }) {
                     <button style={{ width: "49%", height: "35px", borderRadius: "10px", backgroundColor: "#FFB200" }} onClick={() => window.location.href = "/cart"}>Go to Cart</button>
 
                 </div>
-                <div className="X">
-                    <button style={{ padding: "15px 20px", borderRadius: "50%", margin: "20px" }} onClick={() => window.location.href = "/"}>X</button>
+                <div className="X  ">
+                    <button style={{ padding: "15px 20px", borderRadius: "50%", margin: "20px", color:"grey",backgroundColor:"#E5E7EB" }} onClick={() => window.location.href = "/"}>X</button>
                 </div>
 
 

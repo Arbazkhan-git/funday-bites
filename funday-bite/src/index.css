@@ -3,8 +3,9 @@
   
   html, body {
   overflow-x: hidden;
+  scrollbar-width: none;
 }
-
+ 
 
   *{
   padding: 0;
@@ -14,7 +15,9 @@
  font-family:outfit;
  padding-top:4px;
  }
- 
+ ::-webkit-scrollbar {
+  display: none;
+}
  .app{
   width: 74%;
   margin: auto;

@@ -3,18 +3,18 @@ import "./Cart.css";
 import Cartinfo from "../../../components/Cartinfo/Cartinfo";
 import { Link } from "react-router-dom";
 import Cartfooter from "../../../components/Cartfooter/Cartfooter";
-
+import { MinusIcon, PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
 export default function Cart({ cartitems, removefromcart, addtocart, removefromcartall, totalAmount, food, toggleAddon }) {
 
 
 
-
+ const itemCount = Object.values(cartitems).filter(item => item.qty > 0).length;
   return (
     <>
       <div className="carts-info">
+       
         <h2 className="text-2xl font-bold">
-          {Object.values(cartitems).filter(item => item.qty > 0).length
-          } items in cart
+          {itemCount} {itemCount === 1? "item" : "items"} in cart
         </h2>
 
         <Link to="/">
@@ -44,20 +44,16 @@ export default function Cart({ cartitems, removefromcart, addtocart, removefromc
                 {(
                   <div>
                     <div className="counter-div">
-                      <img
-                        className="addicon"
-                        onClick={() => removefromcart(item.id)}
-                        src="/remove-icon.png"
-                        alt="Remove"
-                      />
+                      <button onClick={() => removefromcart(item.id)}>
+                        <MinusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                      </button>
+                     
                       <span className="counter">{qty}</span>
 
-                      <img
-                        className="addicon"
-                        onClick={() => addtocart(item.id)}
-                        src="/add_icon_white.png"
-                        alt="Add"
-                      />
+                      <button onClick={() => addtocart(item.id)}>
+                        <PlusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                      </button>
+                      
                     </div>
 
                   </div>
@@ -68,7 +64,9 @@ export default function Cart({ cartitems, removefromcart, addtocart, removefromc
               </div>
 
               <div className="removebtn">
-                <button onClick={() => removefromcartall(item.id)}>✕</button>
+                <button onClick={() => removefromcartall(item.id)}>
+                  <XMarkIcon  className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                </button>
               </div>
             </div>
           );
