@@ -1,7 +1,8 @@
 import React from "react";
 import "./Cartinfo.css";
 
-export default function Cartinfo() {
+export default function Cartinfo( {openAddress} ) {
+   console.log("openAddress:", openAddress);
   return (
     <>
       <div className="cart-info-coupon">
@@ -20,9 +21,13 @@ export default function Cartinfo() {
             select your delivery adress and we'll bring your taste treets straight
             to you!
           </p>
-          <div className="locationinput">
-            <p>select delivery adress</p>
+          <div className="locationinput pointer">
+            <p  onClick={() => {
+    console.log("Add Address clicked");
+    openAddress();
+  }}>select delivery adress</p>
           </div>
+         
 
 
 

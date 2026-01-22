@@ -3,12 +3,15 @@ import Navbar from '../../components/navbar/Navbar'
 import Trendings from '../../components/trendings/Trendings'
 import Display from '../../components/fooddisplay/Display'
 import Category from '../../components/category/Category'
-import BottomNavbar from '../../components/bottombar/Bottombar'
+import BottomNavbar from '../../components/Bottombar/Bottombar'
+ 
+ 
  
 export default function Home({cartitems,addtocart,removefromcart,openSheet,closeSheet}) {
     const [category,setcategory]= useState("All");
   return (
     <div>
+    
       <Navbar/>
       <Trendings/>
       <Category category={category} setcategory={setcategory}/>

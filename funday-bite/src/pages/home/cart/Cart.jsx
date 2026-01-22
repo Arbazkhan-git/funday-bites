@@ -4,7 +4,7 @@ import Cartinfo from "../../../components/Cartinfo/Cartinfo";
 import { Link } from "react-router-dom";
 import Cartfooter from "../../../components/Cartfooter/Cartfooter";
 import { MinusIcon, PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
-export default function Cart({ cartitems, removefromcart, addtocart, removefromcartall, totalAmount, food, toggleAddon }) {
+export default function Cart({ cartitems, removefromcart, addtocart, removefromcartall, totalAmount, food,  openAddress,handleOrderClick }) {
 
 
 
@@ -45,13 +45,13 @@ export default function Cart({ cartitems, removefromcart, addtocart, removefromc
                   <div>
                     <div className="counter-div">
                       <button onClick={() => removefromcart(item.id)}>
-                        <MinusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                        <MinusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"0px"}} />
                       </button>
                      
                       <span className="counter">{qty}</span>
 
                       <button onClick={() => addtocart(item.id)}>
-                        <PlusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                        <PlusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"0px"}} />
                       </button>
                       
                     </div>
@@ -65,15 +65,15 @@ export default function Cart({ cartitems, removefromcart, addtocart, removefromc
 
               <div className="removebtn">
                 <button onClick={() => removefromcartall(item.id)}>
-                  <XMarkIcon  className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                  <XMarkIcon  className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"0px"}} />
                 </button>
               </div>
             </div>
           );
         })}
 
-        <Cartinfo />
-        <Cartfooter totalAmount={totalAmount} />
+        <Cartinfo  openAddress={openAddress}   />
+        <Cartfooter totalAmount={totalAmount}  handleOrderClick={handleOrderClick} />
       </div>
     </>
   );

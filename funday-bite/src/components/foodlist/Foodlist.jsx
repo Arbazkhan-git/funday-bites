@@ -2,7 +2,7 @@ import React from "react";
 import "./Foodlist.css";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import LazyImage from "../LazyImage";
-export default function Foodlist({ id, name, price, cartitems, openSheet, closeSheet, item }) {
+export default function Foodlist({ id, name, price, cartitems, openSheet, item }) {
   const qty = cartitems[id]?.qty || 0;
 
   return (
@@ -36,7 +36,7 @@ export default function Foodlist({ id, name, price, cartitems, openSheet, closeS
                 justifyContent: "center",
               }}
             >
-              <PlusIcon style={{ width: "30px", height: "30px", color: "white", paddingBottom: "8px" }} />
+              <PlusIcon style={{ width: "30px", height: "30px", color: "white" }} />
             </button>
 
           </div>

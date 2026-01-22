@@ -69,13 +69,13 @@ function Bottomsheet({ item, onClose, onAdd }) {
 
                                 <div className="qty">
                                     <button disabled={qty === 1} onClick={() => setQty(qty - 1)}>
-                                        <MinusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                                        <MinusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"0px"}} />
                                     </button>
 
                                     <span className="qty-count">{qty}</span>
 
                                     <button onClick={() => setQty(qty + 1)}>
-                                      <PlusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"4px"}} />
+                                      <PlusIcon className="w-4 h-4 text-white rounded-full bg-[#FFB200]  " style={{paddingBottom:"0px"}} />
                                     </button>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ function Bottomsheet({ item, onClose, onAdd }) {
                                     {addonQty === 0 && (
                                         <div>
                                             <button
-                                                style={{ paddingBottom: "7px" }}
+                                                style={{ paddingBottom: "px" }}
                                                 onClick={() => addAddon(addon)}
                                                 className="h-4 w-4 absolute -bottom-1 -right-1 bg-[#FF9F00] rounded-full p-1 flex items-center justify-center"
                                             >

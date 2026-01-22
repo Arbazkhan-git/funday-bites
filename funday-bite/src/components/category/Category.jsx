@@ -65,6 +65,7 @@ export default function Category({ category, setcategory }) {
       image: "https://funday-bites.vercel.app/images/dora_cake.png",
       categoryId: "66f891b97dc8c4f26def7e31",
     },
+    
   ];
 
   return (
