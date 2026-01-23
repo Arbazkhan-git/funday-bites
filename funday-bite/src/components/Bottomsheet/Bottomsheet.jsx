@@ -113,7 +113,7 @@ function Bottomsheet({ item, onClose, onAdd }) {
                                     {addonQty === 0 && (
                                         <div>
                                             <button
-                                                style={{ paddingBottom: "px" }}
+                                                style={{ paddingBottom: "0px" }}
                                                 onClick={() => addAddon(addon)}
                                                 className="h-4 w-4 absolute -bottom-1 -right-1 bg-[#FF9F00] rounded-full p-1 flex items-center justify-center"
                                             >
